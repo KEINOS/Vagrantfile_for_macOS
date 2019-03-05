@@ -22,7 +22,7 @@ Vagrantfiles for Japanese macOS HighSierra and Mojave as a Guest OS.
 ├── LICENSE         MIT ライセンスです。
 ├── README.md       このファイルです。
 └── v10.13.6/       ゲスト OS が HighSierra のディレクトリです。
-    ├── vanilla     アップデート意外の余計なインストールがされていない環境を構築します。詳しくは内部の README 参照。
+    ├── vanilla     アップデート以外の余計なインストールがされていない環境を構築します。詳しくは内部の README 参照。
     └── wineskin    Wineskin Winery がインストールされた環境を構築します。（予定）
 ```
 
