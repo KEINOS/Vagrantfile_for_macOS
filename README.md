@@ -10,7 +10,7 @@ Vagrantfiles for Japanese macOS HighSierra and Mojave as a Guest OS.
 
 ## Base box
 
-基本となる　Vagrant<sup>[2](#vagrant)</sup> Box<sup>[3](#box)</sup> イメージは Vagrant Cloud<sup>[4](#vagrantcloud)</sup> で提供されています。いずれもプロバイダ<sup>[5](#provider)</sup>は VirtualBox です。
+基本となる Vagrant<sup>[2](#vagrant)</sup> Box<sup>[3](#box)</sup> イメージは Vagrant Cloud<sup>[4](#vagrantcloud)</sup> で提供されています。いずれもプロバイダ<sup>[5](#provider)</sup>は VirtualBox です。
 
 - GuestOS: macOS High Sierra (OSX 10.13.6)
   - https://app.vagrantup.com/KEINOS/boxes/macOS.10.13.6_Japanese @ Vagrant Cloud
