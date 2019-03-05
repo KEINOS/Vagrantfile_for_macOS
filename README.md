@@ -57,9 +57,9 @@ Vagrantfiles for Japanese macOS HighSierra and Mojave as a Guest OS.
 
 注釈：
 
-1. <small id="vagrantfile">【Vagrantfile とは】Vagrant を使って仮想マシン（ゲスト OS 付き）の立ち上げに必要な設定を記載したファイルです。</small>
-1. <small id="vagrant">【Vagrant とは】Vagrant は、VirutualBox / VMware / Docker などの仮想環境系のアプリケーションをコマンドラインで管理するツールです。</small>
-3. <small id="box">【Box とは】Vagrant における Box とは、仮想マシン・ゲスト OS および仮想化に必要な設定をパッケージにしたアーカイブファイルのことを指します。</small>
-4. <small id="vagrantcloud">【Vagrant Cloud とは】Vagrant の Box イメージを提供するリポジトリのことです。</small>
-5. <small id="provider">【プロバイダとは】Vagrant におけるプロバイダとは、VirtualBox / VMware / Docker などの仮想環境を提供するアプリケーションのことを指します。</small>
-6. <small id="pr">【PR とは】Pull Request の略。プルリクとも呼ばれる。手元に `clone` したリポジトリの追加・削除・修正を、このリポジトリに反映させるためのリクエストのこと。[「`GitHub` `はじめて` `pull` `request`」の Qiita 記事を検索](https://www.google.com/search?q=site%3Aqiita.com+GitHub+%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6+pull+request) @ Google</small>
+1. <a name="vagrantfile"></a><small>【Vagrantfile とは】Vagrant を使って仮想マシン（ゲスト OS 付き）の立ち上げに必要な設定を記載したファイルです。</small>
+1. <a name="vagrant"></a><small>【Vagrant とは】Vagrant は、VirutualBox / VMware / Docker などの仮想環境系のアプリケーションをコマンドラインで管理するツールです。</small>
+3. <a name="box"></a><small>【Box とは】Vagrant における Box とは、仮想マシン・ゲスト OS および仮想化に必要な設定をパッケージにしたアーカイブファイルのことを指します。</small>
+4. <a name="vagrantcloud"></a><small>【Vagrant Cloud とは】Vagrant の Box イメージを提供するリポジトリのことです。</small>
+5. <a name="provider"></a><small>【プロバイダとは】Vagrant におけるプロバイダとは、VirtualBox / VMware / Docker などの仮想環境を提供するアプリケーションのことを指します。</small>
+6. <a name="pr"></a><small>【PR とは】Pull Request の略。プルリクとも呼ばれる。手元に `clone` したリポジトリの追加・削除・修正を、このリポジトリに反映させるためのリクエストのこと。[「`GitHub` `はじめて` `pull` `request`」の Qiita 記事を検索](https://www.google.com/search?q=site%3Aqiita.com+GitHub+%E3%81%AF%E3%81%98%E3%82%81%E3%81%A6+pull+request) @ Google</small>
