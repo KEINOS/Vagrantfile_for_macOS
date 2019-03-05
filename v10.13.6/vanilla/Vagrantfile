@@ -1,0 +1,8 @@
+Vagrant.configure("2") do |config|
+  # via Vagrant Cloud
+  config.vm.box = "KEINOS/macOS.10.13.6_Japanese"
+  config.vm.box_version = "0.0.1"
+
+  # Disable auto mount of synced folder
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+end
