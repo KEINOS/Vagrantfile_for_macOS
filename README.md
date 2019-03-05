@@ -12,8 +12,9 @@ Vagrantfiles for Japanese macOS HighSierra and Mojave as a Guest OS.
 
 基本となる　Vagrant<sup>[2](#vagrant)</sup> Box<sup>[3](#box)</sup> イメージは Vagrant Cloud<sup>[4](#vagrantcloud)</sup> で提供されています。いずれもプロバイダ<sup>[5](#provider)</sup>は VirtualBox です。
 
-- macOS High Sierra (OSX 10.13.6)
-  - https://app.vagrantup.com/KEINOS/boxes/macOS.10.13.6_Japanese
+- GuestOS: macOS High Sierra (OSX 10.13.6)
+  - https://app.vagrantup.com/KEINOS/boxes/macOS.10.13.6_Japanese @ Vagrant Cloud
+  - [動作確認済み Host OS 一覧](https://github.com/KEINOS/Vagrantfile_for_macOS/issues/1)
 
 ## Vagrantfiles
 
@@ -32,7 +33,7 @@ Vagrantfiles for Japanese macOS HighSierra and Mojave as a Guest OS.
 
 特定の開発環境を構築する Vagrantfile が出来たら遠慮なく PR<sup>[6](#pr)</sup> ください。
 
-該当する OS のディレクトリ名の下に、わかりやすいディレクトリを掘り、Vagrantfile と README.md を設置してください。
+該当するゲスト OS のディレクトリの下に、わかりやすいディレクトリ名で、Vagrantfile と README.md を設置してください。
 
 以下は、HighSierra に `git` と [Homebrew](https://ja.wikipedia.org/wiki/Homebrew_(%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E7%AE%A1%E7%90%86%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0)) をインストールした環境を提供する場合の設置例です。
 
