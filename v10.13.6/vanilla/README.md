@@ -4,8 +4,7 @@
 
 - VirtualBox >= v6.0.4 r128413
 - Vagrant >= v2.2.3
-- Base box = v0.0.1
-  - Vagrant Cloud : https://app.vagrantup.com/KEINOS/boxes/macOS.10.13.6_Japanese/
+- Base box = Latest version. [See latest](https://app.vagrantup.com/KEINOS/boxes/macOS.10.13.6_Japanese/) @ Vagrant Cloud
 - [動作確認済み一覧](https://github.com/KEINOS/Vagrantfile_for_macOS/issues/1)
 - 注意：
   - Box イメーイは 20 GB 近くあります。空き容量と時間にご注意ください。
