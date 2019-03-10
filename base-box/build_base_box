@@ -1,0 +1,90 @@
+#!/usr/bin/env bash
+
+# Name of Vagrant file to include in Base box as default settings
+NAME_FILE_VAGRANT_v10_13='Vagrantfile_v0.0.3'
+NAME_FILE_VAGRANT_v10_14='Vagrantfile_v0.0.2'
+
+# Name of VM in VirtualBox to box for Vagrant Cloud
+NAME_VM_v10_13='macOS-HighSierra-Vanilla'
+NAME_VM_v10_14='macOS-Mojave-Vanilla'
+
+# Name of Base box to release
+NAME_FILE_BOX_v10_13='macOS.10.13.6_Japanese'
+NAME_FILE_BOX_v10_14='macOS.10.14.1_Japanese'
+
+# Define paths
+NAME_DIR_VAGRANT_v10_13=$NAME_FILE_BOX_v10_13
+NAME_DIR_VAGRANT_v10_14=$NAME_FILE_BOX_v10_14
+
+PATH_FILE_VAGRANT_v10_13="${NAME_DIR_VAGRANT_v10_13}/${NAME_FILE_VAGRANT_v10_13}"
+PATH_FILE_VAGRANT_v10_14="${NAME_DIR_VAGRANT_v10_14}/${NAME_FILE_VAGRANT_v10_14}"
+PATH_FILE_BASEBOX_v10_13="${NAME_DIR_VAGRANT_v10_13}/${NAME_FILE_BOX_v10_13}.box"
+PATH_FILE_BASEBOX_v10_14="${NAME_DIR_VAGRANT_v10_14}/${NAME_FILE_BOX_v10_14}.box"
+
+# Ask version to package base box
+function askVersionPackage() {
+
+    echo '- Choose version to package:'
+    echo "    1) ${NAME_FILE_VAGRANT_v10_13}"
+    echo "    2) ${NAME_FILE_VAGRANT_v10_14}"
+    echo -n 'Input: '
+    read input
+
+    regex='^[0-9]+$'
+    if ! [[ $input =~ $regex ]] ; then
+        echo "ERROR: Input 1 or 2."
+        askVersionPackage
+    fi
+    if [ $input -eq 1 ] ; then
+        echo "Pack: ${NAME_FILE_VAGRANT_v10_13} ... "
+        NAME_VM=$NAME_VM_v10_13
+        PATH_FILE_VAGRANT=$PATH_FILE_VAGRANT_v10_13
+        PATH_FILE_BASEBOX=$PATH_FILE_BASEBOX_v10_13
+    elif [ $input -eq 2 ] ; then
+        echo "Pack: ${NAME_FILE_VAGRANT_v10_14} ... "
+        NAME_VM=$NAME_VM_v10_14
+        PATH_FILE_VAGRANT=$PATH_FILE_VAGRANT_v10_14
+        PATH_FILE_BASEBOX=$PATH_FILE_BASEBOX_v10_14
+    else
+        echo "ERROR: Input 1 or 2."
+        askVersionPackage
+    fi    
+}
+askVersionPackage
+
+# Check if VM exists
+echo -n "- Checking existing VM: ${NAME_VM} ... "
+vboxmanage list vms | grep $NAME_VM > /dev/null 2>&1
+if [ $? -ne 0 ]; then
+    echo 'NG'
+    echo "VM not found. ${NAME_VM}"
+    exit $LINENO
+fi
+echo 'OK'
+
+# Delete old base boxes
+echo -n "- Deleting ${NAME_FILE_BOX} ... "
+rm -f $NAME_FILE_BOX
+if [ $? -ne 0 ]; then
+    echo 'NG'
+    echo 'Failed to delete old box file.'
+    exit $LINENO
+fi
+echo 'OK'
+
+# Build base box
+echo '- Query info to package:'
+echo "  VM to package         : ${NAME_VM}"
+echo "  Vagrantfile to inclue : ${PATH_FILE_VAGRANT}"
+echo "  Output base box file  : ${PATH_FILE_BASEBOX}"
+echo -n '- Packaging box ... '
+vagrant package \
+    --base $NAME_VM \
+    --output $NAME_FILE_BOX \
+    --vagrantfile $PATH_FILE_VAGRANT
+if [ $? -ne 0 ]; then
+    echo 'NG'
+    echo 'Failed to package box file.'
+    exit $LINENO
+fi
+echo 'OK'
