@@ -1,0 +1,7 @@
+# Guest OS: macOS Mojave (OSX 10.14.1)
+#   - Almost vanilla but git installed
+#   - Headless Mode (Without GUI)
+Vagrant.configure("2") do |config|
+  # via Vagrant Cloud
+  config.vm.box = "KEINOS/macOS.10.14.1_Japanese"
+end

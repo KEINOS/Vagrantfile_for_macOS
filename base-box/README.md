@@ -1,3 +1,5 @@
-# Vagrantfile for Base box
+# Create Base Box
 
-Vagrant Cloud に登録する Base box に適用する、デフォルト値としての Vagrantfile です。
+- https://app.vagrantup.com/KEINOS
+
+上記 Vagrant Cloud に登録する Base box を作成するためのディレクトリです。
