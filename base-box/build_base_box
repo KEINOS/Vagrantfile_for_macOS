@@ -20,13 +20,15 @@ PATH_FILE_VAGRANT_v10_13="${NAME_DIR_VAGRANT_v10_13}/${NAME_FILE_VAGRANT_v10_13}
 PATH_FILE_VAGRANT_v10_14="${NAME_DIR_VAGRANT_v10_14}/${NAME_FILE_VAGRANT_v10_14}"
 PATH_FILE_BASEBOX_v10_13="${NAME_DIR_VAGRANT_v10_13}/${NAME_FILE_BOX_v10_13}.box"
 PATH_FILE_BASEBOX_v10_14="${NAME_DIR_VAGRANT_v10_14}/${NAME_FILE_BOX_v10_14}.box"
+PATH_FILE_BOXINFO_v10_13="${NAME_DIR_VAGRANT_v10_13}/info.json"
+PATH_FILE_BOXINFO_v10_14="${NAME_DIR_VAGRANT_V10_14}/info.json"
 
 # Ask version to package base box
 function askVersionPackage() {
 
     echo '- Choose version to package:'
-    echo "    1) ${NAME_FILE_VAGRANT_v10_13}"
-    echo "    2) ${NAME_FILE_VAGRANT_v10_14}"
+    echo "    1) ${NAME_VM_v10_13}"
+    echo "    2) ${NAME_VM_v10_14}"
     echo -n 'Input: '
     read input
 
@@ -40,11 +42,13 @@ function askVersionPackage() {
         NAME_VM=$NAME_VM_v10_13
         PATH_FILE_VAGRANT=$PATH_FILE_VAGRANT_v10_13
         PATH_FILE_BASEBOX=$PATH_FILE_BASEBOX_v10_13
+        PATH_FILE_BOXINFO=$PATH_FILE_BOXINFO_v10_13
     elif [ $input -eq 2 ] ; then
         echo "Pack: ${NAME_FILE_VAGRANT_v10_14} ... "
         NAME_VM=$NAME_VM_v10_14
         PATH_FILE_VAGRANT=$PATH_FILE_VAGRANT_v10_14
         PATH_FILE_BASEBOX=$PATH_FILE_BASEBOX_v10_14
+        PATH_FILE_BOXINFO=$PATH_FILE_BOXINFO_v10_14
     else
         echo "ERROR: Input 1 or 2."
         askVersionPackage
@@ -62,9 +66,9 @@ if [ $? -ne 0 ]; then
 fi
 echo 'OK'
 
-# Delete old base boxes
-echo -n "- Deleting ${NAME_FILE_BOX} ... "
-rm -f $NAME_FILE_BOX
+# Delete old base box
+echo -n "- Deleting file ${PATH_FILE_BOX} ... "
+rm -f $PATH_FILE_BASEBOX > /dev/null 2>&1
 if [ $? -ne 0 ]; then
     echo 'NG'
     echo 'Failed to delete old box file.'
@@ -74,17 +78,21 @@ echo 'OK'
 
 # Build base box
 echo '- Query info to package:'
-echo "  VM to package         : ${NAME_VM}"
-echo "  Vagrantfile to inclue : ${PATH_FILE_VAGRANT}"
-echo "  Output base box file  : ${PATH_FILE_BASEBOX}"
-echo -n '- Packaging box ... '
+echo "  VM to package           : ${NAME_VM}"
+echo "  Vagrantfile to include  : ${PATH_FILE_VAGRANT}"
+echo "  Box info file to inclue : ${PATH_FILE_BOXINFO}"
+echo "  Output file of base box : ${PATH_FILE_BASEBOX}"
+echo '- Packaging box ... (This will take time):'
 vagrant package \
     --base $NAME_VM \
-    --output $NAME_FILE_BOX \
-    --vagrantfile $PATH_FILE_VAGRANT
+    --output $PATH_FILE_BASEBOX \
+    --vagrantfile $PATH_FILE_VAGRANT \
+    --include $PATH_FILE_BOXINFO
+
 if [ $? -ne 0 ]; then
-    echo 'NG'
+    echo '- Result: NG'
     echo 'Failed to package box file.'
     exit $LINENO
 fi
-echo 'OK'
+echo '- Result: OK'
+
