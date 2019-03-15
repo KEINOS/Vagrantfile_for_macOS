@@ -1,24 +1,27 @@
+**このリポジトリは macOS の検証猿の被害に悩まされるかた向け**の Vagrantfile<sup>[1](#vagrantfile)</sup> および、macOS の Base Box に適用している Vagrantfile を共有しています。
+
 # Vagrantfile for macOS (Japanese Edition) as a Guest OS
 # VirtualBox のゲスト OS に macOS を Vagrant で
 
 Vagrantfiles for Japanese macOS HighSierra and Mojave as a Guest OS.
 
-このリポジトリは macOS の検証猿の被害に悩まされるかた向けの Vagrantfile<sup>[1](#vagrantfile)</sup> を共有しています。
-また、Base となる Box を作成する際に適用する Vagrantfile も共有しています。
-
 ---
 
-## Base box
+## Base boxes for macOS Guest OS
 
-基本となる Vagrant<sup>[2](#vagrant)</sup> Box<sup>[3](#box)</sup> イメージは Vagrant Cloud<sup>[4](#vagrantcloud)</sup> で提供されています。いずれもプロバイダ<sup>[5](#provider)</sup>は VirtualBox です。
+当リポジトリでは、Vagrant Cloud<sup>[4](#vagrantcloud)</sup> で共有している、以下の Vagrant<sup>[2](#vagrant)</sup> 用 Base Box<sup>[3](#box)</sup> の設定情報を共有しています。
 
-- GuestOS: macOS High Sierra (OSX 10.13.6)
-  - https://app.vagrantup.com/KEINOS/boxes/macOS.10.13.6_Japanese @ Vagrant Cloud
-  - [動作確認済み Host OS 一覧](https://github.com/KEINOS/Vagrantfile_for_macOS/issues/1)
+- GuestOS:
+  - macOS High Sierra (OSX 10.13.6)
+        - Vagrant Cloud: [KEINOS/macOS.10.13.6_Japanese](https://app.vagrantup.com/KEINOS/boxes/macOS.10.13.6_Japanese)
+        - [動作確認済み Host OS 一覧](https://github.com/KEINOS/Vagrantfile_for_macOS/issues/1)
+        - Provider<sup>[5](#provider)</sup>: VirtualBox
+  - macOS Mojave (OSX 10.14.1)
+        - Vagrant Cloud: [KEINOS/macOS.10.14.1_Japanese](https://app.vagrantup.com/KEINOS/boxes/macOS.10.14.1_Japanese)
+        - [動作確認済み Host OS 一覧](https://github.com/KEINOS/Vagrantfile_for_macOS/issues/2)
+        - Provider: VirtualBox
 
-## Vagrantfiles
-
-このリポジトリでは以下の Vagrantfile を提供しています。
+## リポジトリのディレクトリ構成
 
 ```text
 .
