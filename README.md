@@ -1,12 +1,12 @@
 # Vagrantfile for macOS (Japanese Edition) as a Guest OS
+# VirtualBox のゲスト OS に macOS を Vagrant で
 
 Vagrantfiles for Japanese macOS HighSierra and Mojave as a Guest OS.
 
----
-
-# VirtualBox のゲスト OS に macOS を Vagrant で
-
 このリポジトリは macOS の検証猿の被害に悩まされるかた向けの Vagrantfile<sup>[1](#vagrantfile)</sup> を共有しています。
+また、Base となる Box を作成する際に適用する Vagrantfile も共有しています。
+
+---
 
 ## Base box
 
@@ -24,18 +24,24 @@ Vagrantfiles for Japanese macOS HighSierra and Mojave as a Guest OS.
 .
 ├── LICENSE                     MIT ライセンスです。
 ├── README.md                   このファイルです。
-├── v10.13.6/                   ゲスト OS が HighSierra のディレクトリです。
-│   ├── vanilla/                アップデート以外の余計なインストールがされていない環境です。
-│   │   ├── README.md
-│   │   ├── Vagrantfile
-│   │   └── Vagrantfile-GUI
-│   └── wineskin                Wineskin Winery がインストールされた環境を構築します。（予定）
-│       └── README.md
-└── v10.14.1/                   ゲスト OS が Mojave のディレクトリです。
-    └── vanilla/                アップデートと git 以外の余計なインストールがされていない環境です。
-        ├── README.md
-        ├── Vagrantfile
-        └── Vagrantfile-GUI
+├── Vagrantfiles                KEINOS/macOS.10.xx.xx_Japanese の Box をカスタムする Vagrantfiles
+│   ├── Vanilla_CUI_v10.13.6
+│   ├── Vanilla_CUI_v10.14.1
+│   ├── Vanilla_GUI_v10.13.6
+│   └── Vanilla_GUI_v10.14.1
+└── base-boxes                  KEINOS/macOS.10.xx.xx_Japanese の Box に適用している Vagrantfiles
+    ├── README.md
+    ├── build_base_box          ローカルにある VirutalBox から Base Box を作成するスクリプト
+    ├── macOS.10.13.6_Japanese  HighSierra の Base Box 用 Vagrantfile
+    │   ├── Vagrantfile_v0.0.1
+    │   ├── Vagrantfile_v0.0.2
+    │   ├── Vagrantfile_v0.0.3
+    │   ├── info.json
+    │   └── macOS.10.13.6_Japanese.box
+    └── macOS.10.14.1_Japanese  Mojave の Base Box 用 Vagrantfile
+        ├── Vagrantfile_v0.0.1
+        ├── Vagrantfile_v0.0.2
+        └── info.json
 ```
 
 ## コラボ
