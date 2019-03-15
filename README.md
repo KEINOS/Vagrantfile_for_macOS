@@ -1,9 +1,8 @@
-**このリポジトリは macOS の検証猿の被害に悩まされるかた向け**の Vagrantfile<sup>[1](#vagrantfile)</sup> および、macOS の Base Box に適用している Vagrantfile を共有しています。
-
 # Vagrantfile for macOS (Japanese Edition) as a Guest OS
 # VirtualBox のゲスト OS に macOS を Vagrant で
 
 Vagrantfiles for Japanese macOS HighSierra and Mojave as a Guest OS.
+**このリポジトリは macOS の検証猿の被害に悩まされるかた向け**の Vagrantfile<sup>[1](#vagrantfile)</sup> および、日本語版 macOS の Base Box に適用している Vagrantfile を共有しています。
 
 ---
 
