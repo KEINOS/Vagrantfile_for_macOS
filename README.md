@@ -12,13 +12,13 @@ Vagrantfiles for Japanese macOS HighSierra and Mojave as a Guest OS.
 
 - GuestOS:
   - macOS High Sierra (OSX 10.13.6)
-        - Vagrant Cloud: [KEINOS/macOS.10.13.6_Japanese](https://app.vagrantup.com/KEINOS/boxes/macOS.10.13.6_Japanese)
-        - [動作確認済み Host OS 一覧](https://github.com/KEINOS/Vagrantfile_for_macOS/issues/1)
-        - Provider<sup>[5](#provider)</sup>: VirtualBox
+    - Vagrant Cloud: [KEINOS/macOS.10.13.6_Japanese](https://app.vagrantup.com/KEINOS/boxes/macOS.10.13.6_Japanese)
+    - [動作確認済み Host OS 一覧](https://github.com/KEINOS/Vagrantfile_for_macOS/issues/1)
+    - Provider<sup>[5](#provider)</sup>: VirtualBox
   - macOS Mojave (OSX 10.14.1)
-        - Vagrant Cloud: [KEINOS/macOS.10.14.1_Japanese](https://app.vagrantup.com/KEINOS/boxes/macOS.10.14.1_Japanese)
-        - [動作確認済み Host OS 一覧](https://github.com/KEINOS/Vagrantfile_for_macOS/issues/2)
-        - Provider: VirtualBox
+    - Vagrant Cloud: [KEINOS/macOS.10.14.1_Japanese](https://app.vagrantup.com/KEINOS/boxes/macOS.10.14.1_Japanese)
+    - [動作確認済み Host OS 一覧](https://github.com/KEINOS/Vagrantfile_for_macOS/issues/2)
+    - Provider: VirtualBox
 
 ## リポジトリのディレクトリ構成
 
