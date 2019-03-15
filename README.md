@@ -50,20 +50,17 @@ Vagrantfiles for Japanese macOS HighSierra and Mojave as a Guest OS.
 
 特定の開発環境を構築する Vagrantfile が出来たら遠慮なく PR<sup>[6](#pr)</sup> ください。
 
-該当するゲスト OS のディレクトリの下に、わかりやすいディレクトリ名で、Vagrantfile と README.md を設置してください。
-
-以下は、HighSierra に `git` と [Homebrew](https://ja.wikipedia.org/wiki/Homebrew_(%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E7%AE%A1%E7%90%86%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0)) をインストールした環境を提供する場合の設置例です。
+以下は、最新の XCode を HighSierra にセットアップする Vagrantfile をシェアする場合の設置場所です。（XCode_Latest_v10.13.6）
 
 ```text
 .
-├── LICENSE
-├── README.md           ← 修正（Vagrantfilesにあるツリーに項目を追記）
-└── v10.13.6/
-    ├── vanilla/
-    :
-    └── git-brew/       ← 新規
-        ├── Vagrantfile ← 新規
-        └── README.md   ← 新規
+├── Vagrantfiles 
+│   ├── XCode_Latest_v10.13.6   ←　タイトルからわかりやすいものにしてください。
+│   ├── Vanilla_CUI_v10.13.6
+│   ├── Vanilla_CUI_v10.14.1
+│   ├── Vanilla_GUI_v10.13.6
+│   └── Vanilla_GUI_v10.14.1
+:
 ```
 
 なお、一度マージされた PR は、本人の意思に関係なく他者からも自由に改善・変更・修正・削除できるものとします。
