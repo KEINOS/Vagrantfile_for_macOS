@@ -1,6 +1,6 @@
 {
  "author": "KEINOS",
- "github": "https://github.com/KEINOS/Vagrantfile_for_macOS/tree/master/base-box",
+ "github": "https://github.com/KEINOS/Vagrantfile_for_macOS/tree/master/base-box/macOS.10.13.6_Japanese",
  "latest": "https://app.vagrantup.com/KEINOS/boxes/macOS.10.13.6_Japanese",
  "usage": "Only for macOS/iOS application development and operation verification purposes. Use at your own risk."
 }
