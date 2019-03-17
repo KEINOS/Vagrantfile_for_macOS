@@ -7,7 +7,7 @@ Vagrantfiles for Japanese macOS HighSierra and Mojave as a Guest OS.
 
 ## Sample Usage
 
-### Bring up macOS in CLI mode(use via SSH).
+### Bring up macOS in CLI mode (use via SSH).
 
 ```shellsession
 $ # HighSierra
