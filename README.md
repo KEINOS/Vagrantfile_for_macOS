@@ -5,21 +5,47 @@ Vagrantfiles for Japanese macOS HighSierra and Mojave as a Guest OS.
 
 **このリポジトリは macOS の検証猿の被害に悩まされるかた向け**の Vagrantfile<sup>[1](#vagrantfile)</sup> および、日本語版 macOS の Base Box に適用している Vagrantfile を共有しています。
 
+## Sample Usage
+
+### Bring up macOS in CLI mode(use via SSH).
+
+```shellsession
+$ # HighSierra
+$ vagrant init -m KEINOS/macOS.10.13.6_Japanese
+...
+$ vagrant up
+...
+$ vagrant ssh
+...
+```
+```shellsession
+$ # Mojave
+$ vagrant init -m KEINOS/macOS.10.14.1_Japanese
+...
+$ vagrant up
+...
+$ vagrant ssh
+...
+```
+
+### Bring up macOS in GUI mode.
+
+```shellsession
+$ # HighSierra
+$ curl -o Vagrantfile https://keinos.github.io/Vagrantfiles/Vanilla_GUI_v10.13.6
+...
+$ vagrant up
+...
+```
+```shellsession
+$ # Mojave
+$ curl -o Vagrantfile https://keinos.github.io/Vagrantfiles/Vanilla_GUI_v10.14.1
+...
+$ vagrant up
+...
+```
+
 ---
-
-## Base boxes for macOS Guest OS
-
-当リポジトリでは、Vagrant Cloud<sup>[4](#vagrantcloud)</sup> で共有している、以下の Vagrant<sup>[2](#vagrant)</sup> 用 Base Box<sup>[3](#box)</sup> の設定情報を共有しています。
-
-- GuestOS:
-  - macOS High Sierra (OSX 10.13.6)
-    - Vagrant Cloud: [KEINOS/macOS.10.13.6_Japanese](https://app.vagrantup.com/KEINOS/boxes/macOS.10.13.6_Japanese)
-    - [動作確認済み Host OS 一覧](https://github.com/KEINOS/Vagrantfile_for_macOS/issues/1)
-    - Provider<sup>[5](#provider)</sup>: VirtualBox
-  - macOS Mojave (OSX 10.14.1)
-    - Vagrant Cloud: [KEINOS/macOS.10.14.1_Japanese](https://app.vagrantup.com/KEINOS/boxes/macOS.10.14.1_Japanese)
-    - [動作確認済み Host OS 一覧](https://github.com/KEINOS/Vagrantfile_for_macOS/issues/2)
-    - Provider: VirtualBox
 
 ## リポジトリのディレクトリ構成
 
@@ -47,11 +73,35 @@ Vagrantfiles for Japanese macOS HighSierra and Mojave as a Guest OS.
         └── info.json
 ```
 
-## コラボ
+### Base Boxes for macOS Guest OS
+
+当リポジトリでは、Vagrant Cloud<sup>[4](#vagrantcloud)</sup> で共有している、以下の Vagrant<sup>[2](#vagrant)</sup> 用 Base Box<sup>[3](#box)</sup> の設定情報を共有しています。
+
+- GuestOS:
+  - macOS High Sierra (OSX 10.13.6)
+    - Vagrant Cloud: [KEINOS/macOS.10.13.6_Japanese](https://app.vagrantup.com/KEINOS/boxes/macOS.10.13.6_Japanese)
+    - [動作確認済み Host OS 一覧](https://github.com/KEINOS/Vagrantfile_for_macOS/issues/1)
+    - Provider<sup>[5](#provider)</sup>: VirtualBox
+  - macOS Mojave (OSX 10.14.1)
+    - Vagrant Cloud: [KEINOS/macOS.10.14.1_Japanese](https://app.vagrantup.com/KEINOS/boxes/macOS.10.14.1_Japanese)
+    - [動作確認済み Host OS 一覧](https://github.com/KEINOS/Vagrantfile_for_macOS/issues/2)
+    - Provider: VirtualBox
+
+### Vagrantfiles for macOS Guest OS
+
+上記 Base Box を元に、さまざまな開発環境を構築する Vagrantfile も共有しています。
 
 特定の開発環境を構築する Vagrantfile が出来たら遠慮なく PR<sup>[6](#pr)</sup> ください。
 
-例えば、最新の XCode を HighSierra にセットアップする Vagrantfile（XCode_Latest_v10.13.6）の場合は以下の通りになります。
+## PR とコラボ
+
+例えば、最新の XCode を HighSierra にセットアップする Vagrantfile を共有する場合は以下の通りになります。
+
+### コラボ例
+
+- Vagrantfile のファイル名：`XCode_Latest_v10.13.6`
+- 設置先ディレクトリ： `./Vagrantfiles`
+- ダウンロード URL： `https://keinos.github.io/Vagrantfiles/XCode_Latest_v10.13.6`
 
 ```text
 .
@@ -64,14 +114,29 @@ Vagrantfiles for Japanese macOS HighSierra and Mojave as a Guest OS.
 :
 ```
 
-- ファイル名から主な内容がわかるようにしてください。また詳細な情報は、各 Vagrantfile 内のコメントに記載してください。
+- ファイル名から主な内容がわかるようにしてください。
+- その他の情報は、各 Vagrantfile 内のコメントに記載してください。
+- 詳細な使い方が必要な場合は、[Qiita](https://qiita.com) やブログなどで記事にし、コメントにその URL を記載してください。
 - 一度マージされた PR は、本人の意思に関係なく他者からも自由に改善・変更・修正・削除できるものとします。
-
 
 ## Issue（不具合報告や改善要望）
 
-[Vagrant Cloud 上の Box イメージ](https://app.vagrantup.com/KEINOS/)や、このリポジトリにある Vagrantfile に関する不具合および改善要望は[リポジトリの Issues](https://github.com/KEINOS/Vagrantfile_for_macOS/issues) にお願いします。
+Vagrant Cloud 上の Box イメージや、このリポジトリにある Vagrantfile に関する不具合および改善要望は[リポジトリの Issues](https://github.com/KEINOS/Vagrantfile_for_macOS/issues) にお願いします。
 
+## 免責事項
+
+**自己責任でご利用ください**。
+
+## ライセンスと禁止事項
+
+本リポジトリで公開されている Vagrantfile は [MIT](https://github.com/KEINOS/Vagrantfile_for_macOS/blob/master/LICENSE) ライセンスになります。（Vagrant Cloud 上の Base Box イメージは除く）
+
+このリポジトリで利用している [Base Box](https://app.vagrantup.com/boxes/search?utf8=%E2%9C%93&sort=downloads&provider=&q=KEINOS+macOS) は macOS/iOS などの開発におけるビルドや動作テストの環境／検証用です。これら以外の用途には使用しないでください。
+
+なお、使用時は下記 Apple の使用許諾に同意したものとします。
+
+- [SOFTWARE LICENSE AGREEMENT FOR macOS High Sierra](http://images.apple.com/legal/sla/docs/macOS1013.pdf) @ Apple 公式 PDF
+- [SOFTWARE LICENSE AGREEMENT FOR macOS Mojave](http://images.apple.com/legal/sla/docs/macOS1014.pdf) @ Apple 公式 PDF
 
 ---
 
