@@ -101,7 +101,7 @@ $ vagrant up
 
 - Vagrantfile のファイル名：`XCode_Latest_v10.13.6`
 - 設置先ディレクトリ： `./Vagrantfiles`
-- ダウンロード URL： `https://keinos.github.io/Vagrantfiles/XCode_Latest_v10.13.6`
+- ダウンロード URL： `https://KEINOS.github.io/Vagrantfile_for_macOS/Vagrantfiles/XCode_Latest_v10.13.6`
 
 ```text
 .
