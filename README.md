@@ -32,14 +32,14 @@ $ vagrant ssh
 
 ```shellsession
 $ # HighSierra
-$ curl -o Vagrantfile https://keinos.github.io/Vagrantfiles/Vanilla_GUI_v10.13.6
+$ curl -o Vagrantfile https://KEINOS.github.io/Vagrantfile_for_macOS/Vagrantfiles/Vanilla_GUI_v10.13.6
 ...
 $ vagrant up
 ...
 ```
 ```shellsession
 $ # Mojave
-$ curl -o Vagrantfile https://keinos.github.io/Vagrantfiles/Vanilla_GUI_v10.14.1
+$ curl -o Vagrantfile https://KEINOS.github.io/Vagrantfile_for_macOS/Vagrantfiles/Vanilla_GUI_v10.14.1
 ...
 $ vagrant up
 ...
