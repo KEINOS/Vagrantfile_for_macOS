@@ -50,12 +50,12 @@ Vagrantfiles for Japanese macOS HighSierra and Mojave as a Guest OS.
 
 特定の開発環境を構築する Vagrantfile が出来たら遠慮なく PR<sup>[6](#pr)</sup> ください。
 
-以下は、最新の XCode を HighSierra にセットアップする Vagrantfile をシェアする場合の設置場所です。（XCode_Latest_v10.13.6）
+例えば、最新の XCode を HighSierra にセットアップする Vagrantfile（XCode_Latest_v10.13.6）の場合は以下の通りになります。
 
 ```text
 .
 ├── Vagrantfiles 
-│   ├── XCode_Latest_v10.13.6   ←　タイトルからわかりやすいものにしてください。
+│   ├── XCode_Latest_v10.13.6   ←　ファイル名からわかりやすいものにしてください。
 │   ├── Vanilla_CUI_v10.13.6
 │   ├── Vanilla_CUI_v10.14.1
 │   ├── Vanilla_GUI_v10.13.6
@@ -63,11 +63,13 @@ Vagrantfiles for Japanese macOS HighSierra and Mojave as a Guest OS.
 :
 ```
 
-なお、一度マージされた PR は、本人の意思に関係なく他者からも自由に改善・変更・修正・削除できるものとします。
+- ファイル名から主な内容がわかるようにしてください。また詳細な情報は、各 Vagrantfile 内のコメントに記載してください。
+- 一度マージされた PR は、本人の意思に関係なく他者からも自由に改善・変更・修正・削除できるものとします。
+
 
 ## Issue（不具合報告や改善要望）
 
-[Vagrant Cloud 上の Box イメージ](https://app.vagrantup.com/KEINOS/)や、このリポジトリにある Vagrantfile に関する不具合および改善要望は[リポジトリの Issues](https://github.com/KEINOS/Vagrantfile_for_macOS/issues)にお願いします。
+[Vagrant Cloud 上の Box イメージ](https://app.vagrantup.com/KEINOS/)や、このリポジトリにある Vagrantfile に関する不具合および改善要望は[リポジトリの Issues](https://github.com/KEINOS/Vagrantfile_for_macOS/issues) にお願いします。
 
 
 ---
