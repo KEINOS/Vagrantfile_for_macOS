@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+# Name of Vagrant Cloud user. Which is equal to organization name.
+NAME_ORGANIZATION='KEINOS'
+
+echo -n '- Checking Vagrant Cloud login ... '
+
+vagrant cloud auth login --check > /dev/null 2>&1
+if [ $? -ne 0 ]; then
+  echo 'NG'
+  echo 'Login to Vagrant Cloud first. Use the below command:'
+  echo '  $ vagrant cloud auth login'
+  exit $LINENO
+fi
+
+vagrant cloud auth whoami | grep $NAME_ORGANIZATION > /dev/null 2>&1
+if [ $? -ne 0 ]; then
+  echo 'NG'
+  echo "Wrong user logged in. Log in as ${NAME_ORGANIZATION}."
+  exit $LINENO
+fi
+echo 'OK'
+
+NAME_FILE_BOX='macOS.10.13.6_Japanese'
+PATH_FILE_BOX="${NAME_FILE_BOX}/${NAME_FILE_BOX}.box"
+echo "- Uploading Box image ... ${NAME_FILE_BOX}"
+vagrant cloud publish -f "${NAME_ORGANIZATION}/${NAME_FILE_BOX}" 0.0.4 virtualbox $PATH_FILE_BOX 
+
+NAME_FILE_BOX='macOS.10.14.1_Japanese'
+PATH_FILE_BOX="${NAME_FILE_BOX}/${NAME_FILE_BOX}.box"
+echo "- Uploading Box image ... ${NAME_FILE_BOX}"
+vagrant cloud publish -f "${NAME_ORGANIZATION}/${NAME_FILE_BOX}" 0.0.3 virtualbox $PATH_FILE_BOX
+
