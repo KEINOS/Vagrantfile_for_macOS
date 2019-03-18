@@ -1,0 +1,39 @@
+#  Vagrantfile for VNC access
+# ==============================================================================
+# This Vagrantfile enables Screen Sharing/VNC access to the headless Guest OS
+# (Mojave).
+#
+# - Note: Access available to all users of the Guest OS (Mojave) such as 'vagrant'
+#   and 'root'.
+#
+# Usage:
+# 1. Download and/or copy this vagrantfile from:
+#      https://KEINOS.github.io/Vagrantfile_for_macOS/Vagrantfiles/VNC_to_Headless_v10.14.1
+# 2. `vagrant up` the Guest OS.
+# 3. From other machines launch the screen share app or VNC client.
+#   - On Mac:
+#       `$ open /System/Library/CoreServices/Applications/Screen\ Sharing.app`
+# 4. Connect to "<Host OS' IP>:5901"
+# 5. Login with user "vagrant" and password "vagrant"
+
+# Basic vagrant settings
+# ----------------------
+Vagrant.configure("2") do |config|
+  config.vm.box = "KEINOS/macOS.10.14.1_Japanese"
+
+  # Screen Share
+  config.vm.provision :shell, inline: $script
+  config.vm.network "forwarded_port", guest: 5900, host: 5901
+
+  # Headless Boot
+  config.vm.provider "virtualbox" do |vb|
+    vb.gui = false
+  end
+end
+
+# Shell script to enable Screen Share
+# -----------------------------------
+$script = <<END
+sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -activate -configure -access -off -restart -agent -privs -all -allowAccessFor -allUsers
+END
+
