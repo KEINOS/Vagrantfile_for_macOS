@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # Name of Vagrant file to include in Base box as default settings
-NAME_FILE_VAGRANT_v10_13='Vagrantfile_v0.0.3'
-NAME_FILE_VAGRANT_v10_14='Vagrantfile_v0.0.2'
+NAME_FILE_VAGRANT_v10_13='Vagrantfile_v0.0.4'
+NAME_FILE_VAGRANT_v10_14='Vagrantfile_v0.0.3'
 
 # Name of VM in VirtualBox to box for Vagrant Cloud
 NAME_VM_v10_13='macOS-HighSierra-Vanilla'
@@ -12,16 +12,9 @@ NAME_VM_v10_14='macOS-Mojave-Vanilla'
 NAME_FILE_BOX_v10_13='macOS.10.13.6_Japanese'
 NAME_FILE_BOX_v10_14='macOS.10.14.1_Japanese'
 
-# Define paths
+# Name of dir for each base box 
 NAME_DIR_VAGRANT_v10_13=$NAME_FILE_BOX_v10_13
 NAME_DIR_VAGRANT_v10_14=$NAME_FILE_BOX_v10_14
-
-PATH_FILE_VAGRANT_v10_13="${NAME_DIR_VAGRANT_v10_13}/${NAME_FILE_VAGRANT_v10_13}"
-PATH_FILE_VAGRANT_v10_14="${NAME_DIR_VAGRANT_v10_14}/${NAME_FILE_VAGRANT_v10_14}"
-PATH_FILE_BASEBOX_v10_13="${NAME_DIR_VAGRANT_v10_13}/${NAME_FILE_BOX_v10_13}.box"
-PATH_FILE_BASEBOX_v10_14="${NAME_DIR_VAGRANT_v10_14}/${NAME_FILE_BOX_v10_14}.box"
-PATH_FILE_BOXINFO_v10_13="${NAME_DIR_VAGRANT_v10_13}/info.json"
-PATH_FILE_BOXINFO_v10_14="${NAME_DIR_VAGRANT_V10_14}/info.json"
 
 # Ask version to package base box
 function askVersionPackage() {
@@ -40,15 +33,15 @@ function askVersionPackage() {
     if [ $input -eq 1 ] ; then
         echo "Pack: ${NAME_FILE_VAGRANT_v10_13} ... "
         NAME_VM=$NAME_VM_v10_13
-        PATH_FILE_VAGRANT=$PATH_FILE_VAGRANT_v10_13
-        PATH_FILE_BASEBOX=$PATH_FILE_BASEBOX_v10_13
-        PATH_FILE_BOXINFO=$PATH_FILE_BOXINFO_v10_13
+        PATH_FILE_VAGRANT="${NAME_DIR_VAGRANT_v10_13}/${NAME_FILE_VAGRANT_v10_13}"
+        PATH_FILE_BASEBOX="${NAME_DIR_VAGRANT_v10_13}/${NAME_FILE_BOX_v10_13}.box"
+        PATH_FILE_BOXINFO="${NAME_DIR_VAGRANT_v10_13}/info.json"
     elif [ $input -eq 2 ] ; then
         echo "Pack: ${NAME_FILE_VAGRANT_v10_14} ... "
         NAME_VM=$NAME_VM_v10_14
-        PATH_FILE_VAGRANT=$PATH_FILE_VAGRANT_v10_14
-        PATH_FILE_BASEBOX=$PATH_FILE_BASEBOX_v10_14
-        PATH_FILE_BOXINFO=$PATH_FILE_BOXINFO_v10_14
+        PATH_FILE_VAGRANT="${NAME_DIR_VAGRANT_v10_14}/${NAME_FILE_VAGRANT_v10_14}"
+        PATH_FILE_BASEBOX="${NAME_DIR_VAGRANT_v10_14}/${NAME_FILE_BOX_v10_14}.box"
+        PATH_FILE_BOXINFO="${NAME_DIR_VAGRANT_v10_14}/info.json"
     else
         echo "ERROR: Input 1 or 2."
         askVersionPackage
