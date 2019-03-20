@@ -1,0 +1,65 @@
+#  Vagrantfile for Wineskin on Mojave
+# ==============================================================================
+# This Vagrantfile creates basic Wineskin Winery environment on Mojave Guest OS.
+#
+# Usage:
+# 1. Download/copy the file as "Vagrantfile" from:
+#      https://KEINOS.github.io/Vagrantfile_for_macOS/Vagrantfiles/Wineskin_GUI_v10.14.1
+# 2. `vagrant up` the Guest OS.
+# 3. 
+
+# Basic vagrant settings
+# ----------------------
+Vagrant.configure("2") do |config|
+  config.vm.box = "KEINOS/macOS.10.14.1_Japanese"
+
+  # Run script once
+  config.vm.provision "shell", inline: $script_once, privileged: false
+
+  # Run script always
+  config.vm.provision "shell", inline: $script_always, privileged: false, run: "always"
+
+  # GUI Boot
+  config.vm.provider "virtualbox" do |vb|
+    vb.gui = true
+  end
+
+  config.vm.post_up_message = <<~MSG
+    - SSH to Guest OS: `vagrant ssh`
+    - Username/Password: vagrant/vagrant
+    - Git: installed
+    - Homebrew: installed
+    - Wineskin Winery: installed
+  MSG
+end
+
+# Shell script to run once at first provisioning
+# ----------------------------------------------
+$script_once = <<-SCRIPT
+  set -e
+  echo '- Insalling Homebew:'
+    echo y | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  echo '- Homebrew installed. Version:'
+    brew --version
+  echo '- Insalling Wineskin Winery (via brew cask):'
+    brew cask install wineskin-winery
+SCRIPT
+
+# Shell script to run always at vagrant up
+# ----------------------------------------
+$script_always = <<-SCRIPT
+  set -e
+  # Check updates
+  echo '- Check updates of software:'; softwareupdate -l
+  echo '- Check updates of brew:';
+    brew update && brew outdated && brew cask outdated
+  # Upgrade
+  echo '- Upgrading software:';   softwareupdate --install -all
+  echo '- Upgrading brew:';       brew upgrade
+  echo '- Upgrading brew cask:';  brew cask upgrade
+  # Clean up to save disk space
+  echo '- Cleaning up brew service:'; brew services cleanup
+  echo '- Cleaning up brew cask:';    brew cleanup cask
+  echo '- Cleaning up brew:';         brew cleanup
+SCRIPT
+
