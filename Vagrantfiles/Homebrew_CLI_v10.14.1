@@ -1,0 +1,66 @@
+#  Vagrantfile for Homebrew on Mojave
+# ==============================================================================
+# This Vagrantfile installes Homebrew to headless Guest OS Mojave.
+#
+# Usage:
+# 1. Download and/or copy this vagrantfile from:
+#      https://KEINOS.github.io/Vagrantfile_for_macOS/Vagrantfiles/Homebrew_CLI_v10.14.1
+# 2. Edit the Shell script section to install any brew and/or cask you need.
+# 3. `vagrant up` the Guest OS.
+# 4. `vagrant ssh` to work with it. 
+
+# Basic vagrant settings
+# ----------------------
+Vagrant.configure("2") do |config|
+  config.vm.box = "KEINOS/macOS.10.14.1_Japanese"
+
+  # Run script once
+  config.vm.provision "shell", inline: $script_once, privileged: false
+
+  # Run script always
+  config.vm.provision "shell", inline: $script_always, privileged: false, run: "always"
+
+  # Headless Boot
+  config.vm.provider "virtualbox" do |vb|
+    vb.gui = false
+  end
+
+  config.vm.post_up_message = <<~MSG
+    - SSH to Guest OS: `vagrant ssh`
+    - Username/Password: vagrant/vagrant
+    - Git: installed
+    - Homebrew: installed
+  MSG
+end
+
+# Shell script to run once at first provisioning
+# ----------------------------------------------
+$script_once = <<-SCRIPT
+set -e
+# Install Homebrew
+echo y | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+echo '- Homebrew installed:'
+brew --version
+SCRIPT
+
+# Shell script to run always at vagrant up
+# ----------------------------------------
+$script_always = <<-SCRIPT
+  set -e
+  # Check updates
+  echo '- Check updates of software:'; softwareupdate -l
+  echo '- Check updates of brew:';
+    brew update && brew outdated && brew cask outdated
+
+  # Upgrade
+  # Uncommnent below to upgrade if up-to-date needed
+  #echo '- Upgrading software:'; softwareupdate --install -all
+  #echo '- Upgrading brew:';  brew upgrade
+  #echo '- Upgrading brew cask:';  brew cask upgrade
+
+  # Clean up to save disk space
+  echo '- Cleaning up brew service:'; brew services cleanup
+  echo '- Cleaning up brew cask:'; brew cleanup cask
+  echo '- Cleaning up brew:'; brew cleanup
+SCRIPT
+
