@@ -1,0 +1,61 @@
+
+#  Vagrantfile for sharing files from Host OS to Mojave Guest OS
+# =============================================================================
+# This Vagrantfile creates a sample file in the directory of this Vagrantfile
+# and shares it's directory to the Guest OS (VM=Mojave, OSX 10.14.1).
+#
+# IMPORTANT:
+# ----------
+# You will be asked the **admin password of the Host OS** while mounting the NSF 
+# volume. The messages will be:
+#   > ==> default: Exporting NFS shared folders...
+#   > ==> default: Preparing to edit /etc/exports. Administrator privileges will 
+#   >     be required...
+#   > Password:
+
+# Preparation (These will run on every 'vagrunt up')
+# --------------------------------------------------
+# Shell Script for HostOS
+system(<<-'SCRIPT')
+  rm -rf hello-world* > /dev/null 2>&1
+  # Creates a test file on Host
+  echo "Hello world! If you see this, the share directory was mounted successfuly!" > hello-world
+SCRIPT
+
+# Shell script for GuestOS
+$script_always = <<-'SCRIPT'
+  # Check if the test file was mounted to Guest
+  cat /vagrant/hello-world && \
+  mv /vagrant/hello-world /vagrant/hello-world.done && \
+  echo 'Moved'
+SCRIPT
+
+# Basic vagrant settings
+# ----------------------
+Vagrant.configure("2") do |config|
+  # Base Box
+  config.vm.box = "KEINOS/macOS.10.14.1_Japanese"
+
+  # This IP must be different segment from your network
+  config.vm.network :private_network, ip: "192.168.1.100"
+
+  # Mount the directory of this Vagrantfile
+  config.vm.synced_folder ".", "/vagrant", type: "nfs"
+
+  # Always run shell script on Guest OS as 'vagrant' user
+  config.vm.provision "shell", inline: $script_always, privileged: false, run: "always"
+
+  # Set VM to boot as headless mode
+  config.vm.provider "virtualbox" do |vb|
+    vb.gui = false
+  end
+
+  # Messages to user
+  config.vm.post_up_message = <<~MSG
+    - SSH to Guest OS  : `vagrant ssh`
+    - Username/Password: vagrant/vagrant
+    - Shared folder:
+      - Host : ./
+      - Guest: /vagrant
+  MSG
+end
