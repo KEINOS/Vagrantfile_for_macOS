@@ -1,5 +1,5 @@
-# Vagrantfile for macOS (Japanese Edition) as a Guest OS
-# VirtualBox のゲスト OS に macOS を Vagrant で
+# Vagrantfile for macOS Guest (Japanese Edition)
+# VirtualBox のゲスト OS に日本語 macOS を Vagrant で
 
 Vagrantfiles for Japanese macOS HighSierra and Mojave as a Guest OS.
 
