@@ -53,24 +53,27 @@ $ vagrant up
 .
 ├── LICENSE                     MIT ライセンスです。
 ├── README.md                   このファイルです。
-├── Vagrantfiles                KEINOS/macOS.10.xx.xx_Japanese の Box をカスタムする Vagrantfiles
-│   ├── Vanilla_CUI_v10.13.6
+├── Vagrantfiles                各種カスタム用 Vagrantfile のサンプル
+│   ├── Vanilla_CUI_v10.13.6
 │   ├── Vanilla_CUI_v10.14.1
 │   ├── Vanilla_GUI_v10.13.6
-│   └── Vanilla_GUI_v10.14.1
-└── base-boxes                  KEINOS/macOS.10.xx.xx_Japanese の Box に適用している Vagrantfiles
+│   ├── Vanilla_GUI_v10.13.6
+│   ├── Homebrew_CLI_v10.14.1
+│   ├── VNC_to_Headless_v10.13.6
+│   └── ...
+└── base-boxes                  Base Box リリース用ディレクトリ
     ├── README.md
-    ├── build_base_box          ローカルにある VirutalBox から Base Box を作成するスクリプト
+    ├── build_base_box          ローカルの VirutalBox から Base Box を作成するスクリプト
     ├── macOS.10.13.6_Japanese  HighSierra の Base Box 用 Vagrantfile
-    │   ├── Vagrantfile_v0.0.1
-    │   ├── Vagrantfile_v0.0.2
-    │   ├── Vagrantfile_v0.0.3
-    │   ├── info.json
-    │   └── macOS.10.13.6_Japanese.box
+    │   ├── info.json           Box に含める情報
+    │   ├── Vagrantfile_v0.0.1  デフォルトの Vagrantfile（バージョン別）
+    │   ├── Vagrantfile_v0.0.2
+    │   └── ...
     └── macOS.10.14.1_Japanese  Mojave の Base Box 用 Vagrantfile
-        ├── Vagrantfile_v0.0.1
+        ├── info.json           Box に含める情報
+        ├── Vagrantfile_v0.0.1  デフォルトの Vagrantfile（バージョン別）
         ├── Vagrantfile_v0.0.2
-        └── info.json
+        └── ...
 ```
 
 ### Base Boxes for macOS Guest OS
