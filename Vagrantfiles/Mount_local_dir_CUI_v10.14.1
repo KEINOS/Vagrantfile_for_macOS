@@ -16,14 +16,14 @@
 # Preparation (These will run on every 'vagrunt up')
 # --------------------------------------------------
 # Shell Script for HostOS
-system(<<-'SCRIPT')
+system(<<~'SCRIPT')
   rm -rf hello-world* > /dev/null 2>&1
   # Creates a test file on Host
   echo "Hello world! If you see this, the share directory was mounted successfuly!" > hello-world
 SCRIPT
 
 # Shell script for GuestOS
-$script_always = <<-'SCRIPT'
+$script_always = <<~'SCRIPT'
   # Check if the test file was mounted to Guest
   cat /vagrant/hello-world && \
   mv /vagrant/hello-world /vagrant/hello-world.done && \
