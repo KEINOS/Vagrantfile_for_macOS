@@ -35,7 +35,7 @@ end
 
 # Shell script to run once at first provisioning
 # ----------------------------------------------
-$script_once = <<-SCRIPT
+$script_once = <<~SCRIPT
 set -e
 # Install Homebrew
 echo y | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -45,7 +45,7 @@ SCRIPT
 
 # Shell script to run always at vagrant up
 # ----------------------------------------
-$script_always = <<-SCRIPT
+$script_always = <<~SCRIPT
   set -e
   # Check updates
   echo '- Check updates of software:'; softwareupdate -l
