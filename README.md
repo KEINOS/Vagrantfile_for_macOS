@@ -134,9 +134,9 @@ Vagrant Cloud 上の Box イメージや、このリポジトリにある Vagran
 
 本リポジトリで公開されている Vagrantfile は [MIT](https://github.com/KEINOS/Vagrantfile_for_macOS/blob/master/LICENSE) ライセンスになります。（Vagrant Cloud 上の Base Box イメージは除く）
 
-このリポジトリで利用している [Base Box](https://app.vagrantup.com/boxes/search?utf8=%E2%9C%93&sort=downloads&provider=&q=KEINOS+macOS) は macOS/iOS などの開発におけるビルドや動作テストの環境／検証用です。これら以外の用途には使用しないでください。
+<font color=red>**【重要】** このリポジトリで利用している [Base Box](https://app.vagrantup.com/boxes/search?utf8=%E2%9C%93&sort=downloads&provider=&q=KEINOS+macOS) は Mac ユーザー向けで、macOS/iOS などの**開発におけるビルドや動作テスト環境および検証専用**</fonrt>です。これら以外の用途には使用しないでください</font>。
 
-なお、使用時は下記 Apple の使用許諾に同意したものとします。
+そのため、使用時はデベロッパー（開発者）として下記 Apple の使用許諾および同意したものとします。
 
 - [SOFTWARE LICENSE AGREEMENT FOR macOS High Sierra](http://images.apple.com/legal/sla/docs/macOS1013.pdf) @ Apple 公式 PDF
 - [SOFTWARE LICENSE AGREEMENT FOR macOS Mojave](http://images.apple.com/legal/sla/docs/macOS1014.pdf) @ Apple 公式 PDF
