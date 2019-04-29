@@ -1,9 +1,17 @@
 # Vagrantfile for macOS Guest (Japanese Edition)
+
+Vagrantfiles for Japanese macOS HighSierra and Mojave as a Guest OS. (Provider: VirtualBox)
+
+- For Non VirtualBox users:
+  - [Search result of "OSX"](https://app.vagrantup.com/boxes/search?utf8=%E2%9C%93&q=OSX) @ VagrantCloud
+
 # VirtualBox のゲスト OS に日本語 macOS を Vagrant で
 
-Vagrantfiles for Japanese macOS HighSierra and Mojave as a Guest OS.
+**このリポジトリは macOS の検証猿の被害に悩まされるかた向け**の Vagrantfile<sup>[1](#vagrantfile)</sup> および、日本語版 macOS の Base Box に適用している Vagrantfile を共有しています。（プロバイダー：VirtualBox）
 
-**このリポジトリは macOS の検証猿の被害に悩まされるかた向け**の Vagrantfile<sup>[1](#vagrantfile)</sup> および、日本語版 macOS の Base Box に適用している Vagrantfile を共有しています。
+- VirtualBox 以外のユーザ:
+  - ["OSX" の検索結果](https://app.vagrantup.com/boxes/search?utf8=%E2%9C%93&q=OSX) @ VagrantCloud
+
 
 ## Sample Usage
 
@@ -140,6 +148,10 @@ Vagrant Cloud 上の Box イメージや、このリポジトリにある Vagran
 
 - [SOFTWARE LICENSE AGREEMENT FOR macOS High Sierra](http://images.apple.com/legal/sla/docs/macOS1013.pdf) @ Apple 公式 PDF
 - [SOFTWARE LICENSE AGREEMENT FOR macOS Mojave](http://images.apple.com/legal/sla/docs/macOS1014.pdf) @ Apple 公式 PDF
+
+### 他の Vagrant イメージを使う
+
+- [Search result of "OSX"](https://app.vagrantup.com/boxes/search?utf8=%E2%9C%93&q=OSX) @ VagrantCloud
 
 ---
 
