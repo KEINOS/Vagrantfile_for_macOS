@@ -5,7 +5,7 @@ Vagrantfiles for Japanese macOS HighSierra and Mojave as a Guest OS. (Provider: 
 - For Non VirtualBox users:
   - [Search result of "OSX"](https://app.vagrantup.com/boxes/search?utf8=%E2%9C%93&q=OSX) @ VagrantCloud
 
-Note: Base box are only for purposes of: (a) software development; (b) testing during software development; and (c) personal, non-commercial use.
+**Note:** The base boxes using in Vagrantfiles at this repsitory are **only for purposes of: (a) software development; (b) testing during software development; and (c) personal, non-commercial use**.
 
 
 # VirtualBox のゲスト OS に日本語 macOS を Vagrant で
